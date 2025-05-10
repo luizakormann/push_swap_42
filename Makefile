@@ -6,7 +6,7 @@
 #    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/04 18:13:07 by lukorman          #+#    #+#              #
-#    Updated: 2025/05/04 19:00:19 by lukorman         ###   ########.fr        #
+#    Updated: 2025/05/10 17:47:06 by lukorman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ INC_DIR	= include
 SRC_DIR	= src/
 OBJ_DIR	= obj/
 BIN_DIR	= bin/
-LIB_DIR = libft
+LIB_DIR = libft/libft_42
 
 
 # **************************************************************************** #
