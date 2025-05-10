@@ -6,7 +6,7 @@
 #    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/04 18:13:07 by lukorman          #+#    #+#              #
-#    Updated: 2025/05/04 18:17:05 by lukorman         ###   ########.fr        #
+#    Updated: 2025/05/04 19:00:19 by lukorman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,23 +74,21 @@ COMP	= $(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 all: git_submodule $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADERS)
-	mkdir -p $(dir $@)
-	$(COMP_OBJS)
+	@mkdir -p $(dir $@)
+	@$(COMP_OBJS)
 
 $(NAME): $(LIBFT) $(OBJS)
-	mkdir -p $(BIN_DIR)
-	$(COMP)
+	@mkdir -p $(BIN_DIR)
+	@$(COMP)
 
 $(LIBFT):
 	$(MAKE) -C $(LIB_DIR) all
 
-MAP ?= maps/test.ber
-
 LEAKS	:=	valgrind --leak-check=full --show-leak-kinds=all\
 		--track-origins=yes --log-file=valgrind-out.txt --track-fds=yes
 
-supmlx: all
-	@$(LEAKS) ./bin/so_long $(MAP)
+val_leaks: all
+	@$(LEAKS) ./bin/push_swap $(MAP)
 
 git_submodule:
 	git submodule update --init --recursive
@@ -106,4 +104,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re git_submodule
+.PHONY: all clean fclean re git_submodule val_leaks
