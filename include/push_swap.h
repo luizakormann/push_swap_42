@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:13:49 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 15:43:11 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:08:42 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_stack
 	int		*values;
 	int		*index;
 	int		size;
+	int		count;
 }	t_stack;
 
 int		parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);

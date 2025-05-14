@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:41:40 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 15:47:20 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:17:40 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ int	count_numbers(int argc, char **argv)
 				return (-1);
 			j = 0;
 			while (split[j])
+			{
+				count++;
 				j++;
-			count += j;
+			}
 			ft_free_split(split);
 		}
 		else

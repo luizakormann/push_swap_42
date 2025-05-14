@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:23:37 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 15:42:45 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/14 16:23:08 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char *argv[])
 	if (is_sorted(&stack_a))
 	{
 		free_stack(&stack_a);
+		free_stack(&stack_b);
 		return (0);
 	}
 	index_stack(&stack_a);
