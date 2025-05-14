@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ops_r.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:42:51 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:42:59 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:22:27 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// Rotate operations
 void	ra(t_stack *stack_a, int print)
 {
 	int	temp_val;
@@ -66,7 +65,6 @@ void	rr(t_stack *stack_a, t_stack *stack_b)
 	ft_putendl_fd("rr", 1);
 }
 
-// Reverse rotate operations
 void	rra(t_stack *stack_a, int print)
 {
 	int	temp_val;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:44:01 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:44:19 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:41:50 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,39 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (result * sign);
+}
+
+void	ft_free_split(char **split)
+{
+	int	i;
+
+	if (!split)
+		return ;
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+void	init_stack(t_stack *stack, int size)
+{
+	stack->values = (int *)malloc(sizeof(int) * size);
+	if (!stack->values)
+		exit(EXIT_FAILURE);
+	stack->index = (int *)malloc(sizeof(int) * size);
+	if (!stack->index)
+	{
+		free(stack->values);
+		exit(EXIT_FAILURE);
+	}
+	stack->size = size;
+}
+
+void	init_stacks(t_stack *a, t_stack *b, int size)
+{
+	init_stack(a, size);
+	init_stack(b, size);
 }

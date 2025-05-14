@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:42:10 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:42:18 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:41:23 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	init_stack(t_stack *stack, int size)
-{
-	stack->values = (int *)malloc(sizeof(int) * size);
-	if (!stack->values)
-		exit(EXIT_FAILURE);
-	stack->index = (int *)malloc(sizeof(int) * size);
-	if (!stack->index)
-	{
-		free(stack->values);
-		exit(EXIT_FAILURE);
-	}
-	stack->size = size;
-}
 
 void	free_stack(t_stack *stack)
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
+#    By: luiza <luiza@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/04 18:13:07 by lukorman          #+#    #+#              #
-#    Updated: 2025/05/10 17:47:06 by lukorman         ###   ########.fr        #
+#    Updated: 2025/05/14 12:27:08 by luiza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ LEAKS	:=	valgrind --leak-check=full --show-leak-kinds=all\
 		--track-origins=yes --log-file=valgrind-out.txt --track-fds=yes
 
 val_leaks: all
-	@$(LEAKS) ./bin/push_swap $(MAP)
+	@$(LEAKS) ./bin/push_swap "2 1 3 6 5 8"
 
 git_submodule:
 	git submodule update --init --recursive

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:43:38 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:43:50 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:18:51 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,6 @@ void	sort_small(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 }
 
-/*
-** Radix Sort implementation
-** 1. Indexar todos os números (já é feito no main)
-** 2. Ordenar os números usando algoritmo radix sort em base 2
-*/
 void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;

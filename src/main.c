@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:23:37 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:47:56 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:42:45 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 		exit(EXIT_SUCCESS);
 	ft_memset(&stack_a, 0, sizeof(t_stack));
 	ft_memset(&stack_b, 0, sizeof(t_stack));
-	if (!parse_args(argc, argv, &stack_a))
+	if (!parse_args(argc, argv, &stack_a, &stack_b))
 		exit_error(&stack_a, &stack_b);
 	if (is_sorted(&stack_a))
 	{

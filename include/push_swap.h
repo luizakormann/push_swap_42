@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:13:49 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:47:39 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:43:11 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-int		parse_args(int argc, char **argv, t_stack *stack_a);
+int		parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);
 int		is_valid_number(char *str);
 int		check_duplicates(t_stack *stack);
 int		is_sorted(t_stack *stack);
@@ -45,6 +45,9 @@ void	index_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
 void	exit_error(t_stack *stack_a, t_stack *stack_b);
 void	init_stack(t_stack *stack, int size);
+void	init_stacks(t_stack *a, t_stack *b, int size);
+long	ft_atol(const char *str);
+void	ft_free_split(char **split);
 
 
 

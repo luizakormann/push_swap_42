@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:41:40 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:41:55 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:47:20 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	parse_single_arg(char *arg, t_stack *stack, int *pos)
 	return (1);
 }
 
-int	parse_args(int argc, char **argv, t_stack *stack)
+int	parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int	size;
 	int	i;
@@ -104,17 +104,17 @@ int	parse_args(int argc, char **argv, t_stack *stack)
 	size = count_numbers(argc, argv);
 	if (size <= 0)
 		return (0);
-	init_stack(stack, size);
+	init_stacks(stack_a, stack_b, size);
 	i = 1;
 	pos = 0;
 	while (i < argc)
 	{
-		if (!parse_single_arg(argv[i], stack, &pos))
+		if (!parse_single_arg(argv[i], stack_a, &pos))
 			return (0);
 		i++;
 	}
-	stack->size = size;
-	if (!check_duplicates(stack))
+	stack_a->size = size;
+	if (!check_duplicates(stack_a))
 		return (0);
 	return (1);
 }

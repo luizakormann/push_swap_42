@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ops_ps.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:43:15 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/10 17:43:26 by lukorman         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:19:18 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// Swap operations
 void	sa(t_stack *stack_a, int print)
 {
 	int	temp;
@@ -52,7 +51,6 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 	ft_putendl_fd("ss", 1);
 }
 
-// Push operations
 void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
