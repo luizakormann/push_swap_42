@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:41:40 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 16:17:40 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 18:35:25 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ int	is_valid_number(char *str)
 int	count_numbers(int argc, char **argv)
 {
 	int		i;
-	int		j;
-	char	**split;
 	int		count;
 
 	i = 1;
@@ -42,18 +40,7 @@ int	count_numbers(int argc, char **argv)
 	while (i < argc)
 	{
 		if (ft_strchr(argv[i], ' '))
-		{
-			split = ft_split(argv[i], ' ');
-			if (!split)
-				return (-1);
-			j = 0;
-			while (split[j])
-			{
-				count++;
-				j++;
-			}
-			ft_free_split(split);
-		}
+			count += count_in_split(argv[i]);
 		else
 			count++;
 		i++;
@@ -63,28 +50,10 @@ int	count_numbers(int argc, char **argv)
 
 int	parse_single_arg(char *arg, t_stack *stack, int *pos)
 {
-	char	**split;
-	int		j;
 	long	num;
 
 	if (ft_strchr(arg, ' '))
-	{
-		split = ft_split(arg, ' ');
-		if (!split)
-			return (0);
-		j = 0;
-		while (split[j])
-		{
-			if (!is_valid_number(split[j]))
-				return (ft_free_split(split), 0);
-			num = ft_atol(split[j]);
-			if (num > INT_MAX || num < INT_MIN)
-				return (ft_free_split(split), 0);
-			stack->values[(*pos)++] = (int)num;
-			j++;
-		}
-		ft_free_split(split);
-	}
+		return (parse_space_separated(arg, stack, pos));
 	else
 	{
 		if (!is_valid_number(arg))

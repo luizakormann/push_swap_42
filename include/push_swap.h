@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:13:49 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 17:45:56 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 18:38:56 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ void	init_stack(t_stack *stack, int size);
 void	init_stacks(t_stack *a, t_stack *b, int size);
 long	ft_atol(const char *str);
 void	ft_free_split(char **split);
+int		count_in_split(char *arg);
+int		parse_space_separated(char *arg, t_stack *stack, int *pos);
 
 #endif
