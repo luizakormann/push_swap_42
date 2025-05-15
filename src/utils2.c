@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:44:01 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 16:22:29 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 19:56:37 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ void	init_stack(t_stack *stack, int size)
 		stack->values = NULL;
 		return ;
 	}
-	stack->size = 0;
-	stack->count = 0;
 }
 
 void	init_stacks(t_stack *a, t_stack *b, int size)
