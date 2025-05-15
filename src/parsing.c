@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:41:40 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 18:35:25 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 19:18:54 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-int	count_numbers(int argc, char **argv)
+static int	count_numbers(int argc, char **argv)
 {
 	int		i;
 	int		count;
@@ -48,7 +48,7 @@ int	count_numbers(int argc, char **argv)
 	return (count);
 }
 
-int	parse_single_arg(char *arg, t_stack *stack, int *pos)
+static int	parse_single_arg(char *arg, t_stack *stack, int *pos)
 {
 	long	num;
 

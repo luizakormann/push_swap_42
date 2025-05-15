@@ -6,7 +6,7 @@
 #    By: luiza <luiza@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/04 18:13:07 by lukorman          #+#    #+#              #
-#    Updated: 2025/05/14 18:36:45 by luiza            ###   ########.fr        #
+#    Updated: 2025/05/15 19:43:24 by luiza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ COMP	= $(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 # **************************************************************************** #
 
 all: git_submodule $(NAME)
+	@echo "push_swap compilation completed. run with ./bin/push_swap"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADERS)
 	@mkdir -p $(dir $@)
@@ -82,7 +83,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	@$(COMP)
 
 $(LIBFT):
-	$(MAKE) -C $(LIB_DIR) all
+	@$(MAKE) -C $(LIB_DIR) all --silent
 
 ARGS ?= "2 1 3 6 5 8"
 
@@ -90,19 +91,21 @@ LEAKS	:=	valgrind --leak-check=full --show-leak-kinds=all\
 		--track-origins=yes --log-file=valgrind-out.txt --track-fds=yes
 
 val_leaks: all
+	@echo "exec valgrind with args '2 1 3 6 5 8'. find trace at ./valgrind-out.txt"
 	@$(LEAKS) ./$(NAME) $(ARGS)
 
 git_submodule:
-	git submodule update --init --recursive
+	@git submodule update --init --recursive
 
 clean:
-	$(RM) $(OBJ_DIR)
-	$(RM) valgrind-out.txt
+	@echo "removing /obj && valgrind-out.txt if it exists"
+	@$(RM) $(OBJ_DIR)
+	@$(RM) valgrind-out.txt
 
 fclean: clean
-	$(RM) $(BIN_DIR)
-	$(RM) valgrind-out.txt
-	$(MAKE) -C $(LIB_DIR) fclean
+	@echo "removing /bin"
+	@$(RM) $(BIN_DIR)
+	@$(MAKE) -C $(LIB_DIR) fclean --silent
 
 re: fclean all
 
