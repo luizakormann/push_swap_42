@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops_ps.c                                           :+:      :+:    :+:   */
+/*   ops_rr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/10 17:43:15 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 16:45:00 by luiza            ###   ########.fr       */
+/*   Created: 2025/05/10 17:42:51 by lukorman          #+#    #+#             */
+/*   Updated: 2025/05/14 16:50:25 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sa(t_stack *stack_a, int print)
+void	rra(t_stack *stack_a, int print)
 {
-	swap(stack_a);
+	rev_rotate(stack_a);
 	if (print)
-		ft_putendl_fd("sa", 1);
+		ft_putendl_fd("rra", 1);
 }
 
-void	sb(t_stack *stack_b, int print)
+void	rrb(t_stack *stack_b, int print)
 {
-	swap(stack_b);
+	rev_rotate(stack_b);
 	if (print)
-		ft_putendl_fd("sb", 1);
+		ft_putendl_fd("rrb", 1);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
-	ft_putendl_fd("ss", 1);
-}
-
-void	pa(t_stack *stack_a, t_stack *stack_b)
-{
-	push(stack_b, stack_a);
-	ft_putendl_fd("pa", 1);
-}
-
-void	pb(t_stack *stack_a, t_stack *stack_b)
-{
-	push(stack_a, stack_b);
-	ft_putendl_fd("pb", 1);
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
+	ft_putendl_fd("rrr", 1);
 }

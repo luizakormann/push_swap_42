@@ -6,7 +6,7 @@
 #    By: luiza <luiza@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/04 18:13:07 by lukorman          #+#    #+#              #
-#    Updated: 2025/05/14 12:27:08 by luiza            ###   ########.fr        #
+#    Updated: 2025/05/14 18:36:45 by luiza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 # common comp
 CC	= cc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -O3 -Wall -Wextra -Werror
 RM	= rm -rf
 
 # **************************************************************************** #
@@ -84,11 +84,13 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT):
 	$(MAKE) -C $(LIB_DIR) all
 
+ARGS ?= "2 1 3 6 5 8"
+
 LEAKS	:=	valgrind --leak-check=full --show-leak-kinds=all\
 		--track-origins=yes --log-file=valgrind-out.txt --track-fds=yes
 
 val_leaks: all
-	@$(LEAKS) ./bin/push_swap "2 1 3 6 5 8"
+	@$(LEAKS) ./$(NAME) $(ARGS)
 
 git_submodule:
 	git submodule update --init --recursive
