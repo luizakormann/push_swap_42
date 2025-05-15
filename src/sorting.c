@@ -6,29 +6,20 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:43:38 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 18:13:31 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 19:05:19 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	sort_three(t_stack *stack)
+static void	sort_two(t_stack *stack)
 {
-	int	a;
-	int	b;
-	int	c;
+	if (stack->values[0] > stack->values[1])
+		sa(stack, 1);
+}
 
-	if (stack->size < 2)
-		return ;
-	if (stack->size == 2)
-	{
-		if (stack->values[0] > stack->values[1])
-			sa(stack, 1);
-		return ;
-	}
-	a = stack->values[0];
-	b = stack->values[1];
-	c = stack->values[2];
+static void	sort_three(t_stack *stack, int a, int b, int c)
+{
 	if (a > b && b < c && a < c)
 		sa(stack, 1);
 	else if (a > b && b > c)
@@ -45,6 +36,25 @@ void	sort_three(t_stack *stack)
 	}
 	else if (a < b && b > c && a > c)
 		rra(stack, 1);
+}
+
+void	until_three(t_stack *stack)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	if (stack->size < 2)
+		return ;
+	if (stack->size == 2)
+	{
+		sort_two(stack);
+		return ;
+	}
+	a = stack->values[0];
+	b = stack->values[1];
+	c = stack->values[2];
+	sort_three(stack, a, b, c);
 }
 
 int	find_min_pos(t_stack *stack)
@@ -89,36 +99,7 @@ void	sort_small(t_stack *stack_a, t_stack *stack_b)
 		}
 		pb(stack_a, stack_b);
 	}
-	sort_three(stack_a);
+	until_three(stack_a);
 	while (stack_b->size > 0)
 		pa(stack_a, stack_b);
-}
-
-void	radix_sort(t_stack *stack_a, t_stack *stack_b)
-{
-	int	i;
-	int	j;
-	int	size;
-	int	max_bits;
-
-	size = stack_a->size;
-	max_bits = 0;
-	while ((size - 1) >> max_bits != 0)
-		max_bits++;
-	i = 0;
-	while (i < max_bits)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (((stack_a->index[0] >> i) & 1) == 1)
-				ra(stack_a, 1);
-			else
-				pb(stack_a, stack_b);
-			j++;
-		}
-		while (stack_b->size > 0)
-			pa(stack_a, stack_b);
-		i++;
-	}
 }

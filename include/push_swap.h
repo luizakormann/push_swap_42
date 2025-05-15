@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:13:49 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 18:38:56 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 19:01:44 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	rra(t_stack *stack_a, int print);
 void	rrb(t_stack *stack_b, int print);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	sort_small(t_stack *stack_a, t_stack *stack_b);
-void	sort_three(t_stack *stack);
+void	until_three(t_stack *stack);
 void	radix_sort(t_stack *stack_a, t_stack *stack_b);
 void	index_stack(t_stack *stack);
 void	free_stack(t_stack *stack);

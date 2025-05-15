@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:23:37 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 18:03:52 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 19:01:44 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 	}
 	index_stack(&stack_a);
 	if (stack_a.size <= 3)
-		sort_three(&stack_a);
+		until_three(&stack_a);
 	else if (stack_a.size <= 6)
 		sort_small(&stack_a, &stack_b);
 	else
