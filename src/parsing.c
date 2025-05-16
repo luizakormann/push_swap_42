@@ -6,27 +6,39 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:41:40 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 19:18:54 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 20:34:18 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	is_valid_number(char *str)
-{
-	int	i;
+int			parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);
+static int	count_numbers(int argc, char **argv);
+static int	parse_single_arg(char *arg, t_stack *stack, int *pos);
+int			is_valid_number(char *str);
+int			check_duplicates(t_stack *stack);
 
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
+int	parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
+{
+	int	size;
+	int	i;
+	int	pos;
+
+	size = count_numbers(argc, argv);
+	if (size <= 0)
 		return (0);
-	while (str[i])
+	init_stacks(stack_a, stack_b, size);
+	i = 1;
+	pos = 0;
+	while (i < argc)
 	{
-		if (!ft_isdigit(str[i]))
+		if (!parse_single_arg(argv[i], stack_a, &pos))
 			return (0);
 		i++;
 	}
+	stack_a->size = size;
+	if (!check_duplicates(stack_a))
+		return (0);
 	return (1);
 }
 
@@ -66,27 +78,21 @@ static int	parse_single_arg(char *arg, t_stack *stack, int *pos)
 	return (1);
 }
 
-int	parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
+int	is_valid_number(char *str)
 {
-	int	size;
 	int	i;
-	int	pos;
 
-	size = count_numbers(argc, argv);
-	if (size <= 0)
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
 		return (0);
-	init_stacks(stack_a, stack_b, size);
-	i = 1;
-	pos = 0;
-	while (i < argc)
+	while (str[i])
 	{
-		if (!parse_single_arg(argv[i], stack_a, &pos))
+		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
 	}
-	stack_a->size = size;
-	if (!check_duplicates(stack_a))
-		return (0);
 	return (1);
 }
 

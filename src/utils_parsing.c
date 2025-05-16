@@ -6,11 +6,33 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:28:33 by luiza             #+#    #+#             */
-/*   Updated: 2025/05/15 18:40:48 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 21:16:15 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	count_in_split(char *arg);
+int	parse_space_separated(char *arg, t_stack *stack, int *pos);
+
+int	count_in_split(char *arg)
+{
+	char	**split;
+	int		i;
+	int		count;
+
+	split = ft_split(arg, ' ');
+	if (!split)
+		return (-1);
+	i = 0;
+	while (split[i])
+	{
+		count++;
+		i++;
+	}
+	ft_free_split(split);
+	return (count);
+}
 
 int	parse_space_separated(char *arg, t_stack *stack, int *pos)
 {
@@ -34,23 +56,4 @@ int	parse_space_separated(char *arg, t_stack *stack, int *pos)
 	}
 	ft_free_split(split);
 	return (1);
-}
-
-int	count_in_split(char *arg)
-{
-	char	**split;
-	int		i;
-	int		count;
-
-	split = ft_split(arg, ' ');
-	if (!split)
-		return (-1);
-	i = 0;
-	while (split[i])
-	{
-		count++;
-		i++;
-	}
-	ft_free_split(split);
-	return (count);
 }
