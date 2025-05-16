@@ -6,11 +6,16 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 16:33:45 by luiza             #+#    #+#             */
-/*   Updated: 2025/05/15 17:51:51 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 21:32:40 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	swap(t_stack *stack);
+void	push(t_stack *from, t_stack *to);
+void	rotate(t_stack *stack);
+void	rev_rotate(t_stack *stack);
 
 void	swap(t_stack *stack)
 {
