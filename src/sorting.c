@@ -6,11 +6,36 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:43:38 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 19:05:19 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 21:31:18 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void		until_three(t_stack *stack);
+static void	sort_two(t_stack *stack);
+static void	sort_three(t_stack *stack, int a, int b, int c);
+void		sort_small(t_stack *stack_a, t_stack *stack_b);
+int			find_min_pos(t_stack *stack);
+
+void	until_three(t_stack *stack)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	if (stack->size < 2)
+		return ;
+	if (stack->size == 2)
+	{
+		sort_two(stack);
+		return ;
+	}
+	a = stack->values[0];
+	b = stack->values[1];
+	c = stack->values[2];
+	sort_three(stack, a, b, c);
+}
 
 static void	sort_two(t_stack *stack)
 {
@@ -38,46 +63,6 @@ static void	sort_three(t_stack *stack, int a, int b, int c)
 		rra(stack, 1);
 }
 
-void	until_three(t_stack *stack)
-{
-	int	a;
-	int	b;
-	int	c;
-
-	if (stack->size < 2)
-		return ;
-	if (stack->size == 2)
-	{
-		sort_two(stack);
-		return ;
-	}
-	a = stack->values[0];
-	b = stack->values[1];
-	c = stack->values[2];
-	sort_three(stack, a, b, c);
-}
-
-int	find_min_pos(t_stack *stack)
-{
-	int	i;
-	int	min;
-	int	pos;
-
-	i = 0;
-	min = INT_MAX;
-	pos = 0;
-	while (i < stack->size)
-	{
-		if (stack->values[i] < min)
-		{
-			min = stack->values[i];
-			pos = i;
-		}
-		i++;
-	}
-	return (pos);
-}
-
 void	sort_small(t_stack *stack_a, t_stack *stack_b)
 {
 	int	pos;
@@ -102,4 +87,25 @@ void	sort_small(t_stack *stack_a, t_stack *stack_b)
 	until_three(stack_a);
 	while (stack_b->size > 0)
 		pa(stack_a, stack_b);
+}
+
+int	find_min_pos(t_stack *stack)
+{
+	int	i;
+	int	min;
+	int	pos;
+
+	i = 0;
+	min = INT_MAX;
+	pos = 0;
+	while (i < stack->size)
+	{
+		if (stack->values[i] < min)
+		{
+			min = stack->values[i];
+			pos = i;
+		}
+		i++;
+	}
+	return (pos);
 }
