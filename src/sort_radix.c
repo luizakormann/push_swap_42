@@ -6,11 +6,36 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:55:12 by luiza             #+#    #+#             */
-/*   Updated: 2025/05/15 18:56:17 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/15 21:34:14 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	index_stack(t_stack *stack);
+void	radix_sort(t_stack *stack_a, t_stack *stack_b);
+
+void	index_stack(t_stack *stack)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	while (i < stack->size)
+	{
+		count = 0;
+		j = 0;
+		while (j < stack->size)
+		{
+			if (stack->values[i] > stack->values[j])
+				count++;
+			j++;
+		}
+		stack->index[i] = count;
+		i++;
+	}
+}
 
 void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {

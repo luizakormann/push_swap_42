@@ -5,34 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/10 17:42:10 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 12:41:23 by luiza            ###   ########.fr       */
+/*   Created: 2025/05/10 17:44:01 by lukorman          #+#    #+#             */
+/*   Updated: 2025/05/15 21:37:27 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	free_stack(t_stack *stack)
+long	ft_atol(const char *str);
+void	init_stack(t_stack *stack, int size);
+void	init_stacks(t_stack *a, t_stack *b, int size);
+int	is_sorted(t_stack *stack);
+
+long	ft_atol(const char *str)
 {
-	if (stack)
+	long	result;
+	int		sign;
+	int		i;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (stack->values)
-			free(stack->values);
-		if (stack->index)
-			free(stack->index);
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
+}
+
+void	init_stack(t_stack *stack, int size)
+{
+	stack->values = (int *)malloc(sizeof(int) * size);
+	if (!stack->values)
+		return ;
+	stack->index = (int *)malloc(sizeof(int) * size);
+	if (!stack->index)
+	{
+		free(stack->values);
 		stack->values = NULL;
-		stack->index = NULL;
-		stack->size = 0;
+		return ;
 	}
 }
 
-void	exit_error(t_stack *stack_a, t_stack *stack_b)
+void	init_stacks(t_stack *a, t_stack *b, int size)
 {
-	free_stack(stack_a);
-	free_stack(stack_b);
-	ft_putendl_fd("Error", 2);
-	exit(EXIT_FAILURE);
+	init_stack(a, size);
+	init_stack(b, size);
 }
+
 
 int	is_sorted(t_stack *stack)
 {
@@ -46,26 +75,4 @@ int	is_sorted(t_stack *stack)
 		i++;
 	}
 	return (1);
-}
-
-void	index_stack(t_stack *stack)
-{
-	int	i;
-	int	j;
-	int	count;
-
-	i = 0;
-	while (i < stack->size)
-	{
-		count = 0;
-		j = 0;
-		while (j < stack->size)
-		{
-			if (stack->values[i] > stack->values[j])
-				count++;
-			j++;
-		}
-		stack->index[i] = count;
-		i++;
-	}
 }
