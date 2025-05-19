@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: luiza <luiza@student.42.fr>                +#+  +:+       +#+         #
+#    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/04 18:13:07 by lukorman          #+#    #+#              #
-#    Updated: 2025/05/15 19:43:24 by luiza            ###   ########.fr        #
+#    Updated: 2025/05/19 15:23:43 by lukorman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,7 @@ all: git_submodule $(NAME)
 	@echo "push_swap compilation completed. run with ./bin/push_swap"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADERS)
+	@echo "compiling. please, wait"
 	@mkdir -p $(dir $@)
 	@$(COMP_OBJS)
 
