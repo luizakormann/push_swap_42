@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:13:49 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 21:20:09 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/19 15:15:23 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,13 @@ int		check_duplicates(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void	swap(t_stack *stack);
 void	sa(t_stack *stack_a, int print);
-void	sb(t_stack *stack_b, int print);
-void	ss(t_stack *stack_a, t_stack *stack_b);
 void	push(t_stack *from, t_stack *to);
 void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
 void	rotate(t_stack *stack);
 void	ra(t_stack *stack_a, int print);
-void	rb(t_stack *stack_b, int print);
-void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rev_rotate(t_stack *stack);
 void	rra(t_stack *stack_a, int print);
-void	rrb(t_stack *stack_b, int print);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	sort_small(t_stack *stack_a, t_stack *stack_b);
 void	until_three(t_stack *stack);
 void	radix_sort(t_stack *stack_a, t_stack *stack_b);

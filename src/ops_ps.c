@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_ps.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:43:15 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/14 16:45:00 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/19 15:14:53 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,6 @@ void	sa(t_stack *stack_a, int print)
 	swap(stack_a);
 	if (print)
 		ft_putendl_fd("sa", 1);
-}
-
-void	sb(t_stack *stack_b, int print)
-{
-	swap(stack_b);
-	if (print)
-		ft_putendl_fd("sb", 1);
-}
-
-void	ss(t_stack *stack_a, t_stack *stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
-	ft_putendl_fd("ss", 1);
 }
 
 void	pa(t_stack *stack_a, t_stack *stack_b)
