@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_end.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:42:10 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 21:36:19 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/19 13:47:37 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	free_stack(t_stack *stack);
 void	ft_free_split(char **split);
 void	exit_error(t_stack *stack_a, t_stack *stack_b);
-
 
 void	free_stack(t_stack *stack)
 {
@@ -53,4 +52,3 @@ void	exit_error(t_stack *stack_a, t_stack *stack_b)
 	ft_putendl_fd("Error", 2);
 	exit(EXIT_FAILURE);
 }
-

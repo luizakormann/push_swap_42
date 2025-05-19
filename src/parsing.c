@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:41:40 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 20:34:18 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/19 13:48:18 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int			parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b);
+int			parse_args(int argc, char **argv, t_stack *stack_a,
+				t_stack *stack_b);
 static int	count_numbers(int argc, char **argv);
 static int	parse_single_arg(char *arg, t_stack *stack, int *pos);
-int			is_valid_number(char *str);
 int			check_duplicates(t_stack *stack);
 
 int	parse_args(int argc, char **argv, t_stack *stack_a, t_stack *stack_b)
@@ -74,24 +74,6 @@ static int	parse_single_arg(char *arg, t_stack *stack, int *pos)
 		if (num > INT_MAX || num < INT_MIN)
 			return (0);
 		stack->values[(*pos)++] = (int)num;
-	}
-	return (1);
-}
-
-int	is_valid_number(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
 	}
 	return (1);
 }

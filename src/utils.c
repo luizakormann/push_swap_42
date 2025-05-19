@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 17:44:01 by lukorman          #+#    #+#             */
-/*   Updated: 2025/05/15 21:37:27 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/19 13:47:05 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long	ft_atol(const char *str);
 void	init_stack(t_stack *stack, int size);
 void	init_stacks(t_stack *a, t_stack *b, int size);
-int	is_sorted(t_stack *stack);
+int		is_sorted(t_stack *stack);
 
 long	ft_atol(const char *str)
 {
@@ -61,7 +61,6 @@ void	init_stacks(t_stack *a, t_stack *b, int size)
 	init_stack(a, size);
 	init_stack(b, size);
 }
-
 
 int	is_sorted(t_stack *stack)
 {

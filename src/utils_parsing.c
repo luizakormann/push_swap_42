@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:28:33 by luiza             #+#    #+#             */
-/*   Updated: 2025/05/15 21:16:15 by luiza            ###   ########.fr       */
+/*   Updated: 2025/05/19 13:51:57 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	count_in_split(char *arg);
 int	parse_space_separated(char *arg, t_stack *stack, int *pos);
+int	is_valid_number(char *str);
 
 int	count_in_split(char *arg)
 {
@@ -25,6 +26,7 @@ int	count_in_split(char *arg)
 	if (!split)
 		return (-1);
 	i = 0;
+	count = 0;
 	while (split[i])
 	{
 		count++;
@@ -55,5 +57,23 @@ int	parse_space_separated(char *arg, t_stack *stack, int *pos)
 		i++;
 	}
 	ft_free_split(split);
+	return (1);
+}
+
+int	is_valid_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
 	return (1);
 }
